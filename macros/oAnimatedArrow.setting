@@ -1,0 +1,326 @@
+{
+	Tools = ordered() {
+		oAnimatedArrow = MacroOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "ArrowColor",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 1,
+					Default = 0.583,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "ArrowColor",
+					Source = "TopLeftGreen",
+					ControlGroup = 1,
+					Default = 0.583,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "ArrowColor",
+					Source = "TopLeftBlue",
+					ControlGroup = 1,
+					Default = 0,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "Center",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "Pivot",
+				},
+				Input6 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "UseSizeAndAspect",
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "Size",
+					Default = 1,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "Aspect",
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "Angle",
+					Default = 0,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "FlipHoriz",
+					ControlGroup = 8,
+					Default = 0,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "FlipVert",
+					ControlGroup = 8,
+					Default = 0,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "MainTx",
+					Source = "Blend",
+					Default = 1,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				ArrowHead = Paint {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "Twig",
+							Source = "Output",
+						},
+						Paint = Input {
+							SourceOp = "PolylineStroke3",
+							Source = "Out",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 1460.81, 89.2797 } },
+				},
+				PolylineStroke3 = PolylineStroke {
+					Points = {
+					},
+					IsThreaded = true,
+					Brushes = { "CircleBrush" },
+					ApplyModes = { "PaintApplyColor" },
+					CtrlWZoom = false,
+					Inputs = {
+						BrushControls = Input { Value = 1, },
+						BrushShape = Input { Value = FuID { "CircleBrush" }, },
+						["CircleBrush.Size"] = Input { Value = 0.0039, },
+						StrokeControls = Input { Value = 1, },
+						WriteOnEnd = Input {
+							SourceOp = "AnimCurves2",
+							Source = "Value",
+						},
+						Polyline = Input {
+							Value = Polyline {
+								Points = {
+									{ Linear = true, X = 0.00980331058205752, Y = -0.042654324878196, RX = 0.00864622466200483, RY = -0.00278977246664093 },
+									{ X = 0.0357419845680719, Y = -0.0510236422781194, LX = -1.9466109868378e-05, LY = 0.000180762611162263, RX = 6.33103534187189e-05, RY = -0.000587900966086931 },
+									{ X = 0.00855890379342139, Y = -0.089176980892835, LX = 7.65434737024424e-05, LY = 0.00212156782854379 }
+								}
+							},
+						}
+					},
+				},
+				AnimCurves2 = LUTLookup {
+					CtrlWZoom = false,
+					Inputs = {
+						Lookup = Input {
+							SourceOp = "AnimCurves2Lookup",
+							Source = "Value",
+						},
+						Scale = Input { Value = 20, },
+						TimeOffset = Input { Value = 0.15, }
+					},
+				},
+				AnimCurves2Lookup = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 0, Blue = 0 },
+					CtrlWZoom = false,
+				},
+				Twig = Paint {
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background2",
+							Source = "Output",
+						},
+						Paint = Input {
+							SourceOp = "PolylineStroke2",
+							Source = "Out",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 1340.13, 90.1368 } },
+				},
+				PolylineStroke2 = PolylineStroke {
+					Points = {
+					},
+					IsThreaded = false,
+					Brushes = { "CircleBrush" },
+					ApplyModes = { "PaintApplyColor" },
+					CtrlWZoom = false,
+					Inputs = {
+						Paint = Input {
+							SourceOp = "PolylineStroke1",
+							Source = "Out",
+						},
+						BrushControls = Input { Value = 1, },
+						BrushShape = Input { Value = FuID { "CircleBrush" }, },
+						["CircleBrush.Size"] = Input { Value = 0.0039, },
+						StrokeControls = Input { Value = 1, },
+						Polyline = Input {
+							Value = Polyline {
+							},
+						}
+					},
+				},
+				PolylineStroke1 = PolylineStroke {
+					Points = {
+					},
+					IsThreaded = true,
+					Brushes = { "CircleBrush" },
+					ApplyModes = { "PaintApplyColor" },
+					CtrlWZoom = false,
+					Inputs = {
+						BrushControls = Input { Value = 1, },
+						BrushShape = Input { Value = FuID { "CircleBrush" }, },
+						["CircleBrush.Size"] = Input { Value = 0.0039, },
+						StrokeControls = Input { Value = 1, },
+						Duration = Input { Value = 0.5, },
+						WriteOnEnd = Input {
+							SourceOp = "AnimCurves1",
+							Source = "Value",
+						},
+						Polyline = Input {
+							Value = Polyline {
+								Points = {
+									{ X = 0.0032922746963843, Y = 0.151841448189763, RX = 0.00875611759881576, RY = -0.0218832555751364 },
+									{ X = 0.0212058679524433, Y = -0.056023720349563, LX = -0.0758693361433086, LY = -0.0337078651685406 }
+								}
+							},
+						}
+					},
+				},
+				AnimCurves1 = LUTLookup {
+					CtrlWZoom = false,
+					Inputs = {
+						EaseIn = Input { Value = FuID { "Expo" }, },
+						Lookup = Input {
+							SourceOp = "AnimCurves1Lookup",
+							Source = "Value",
+						},
+						Scale = Input { Value = 16, },
+						TimeScale = Input { Value = 0.5, }
+					},
+				},
+				AnimCurves1Lookup = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.0312141066354014, 0.333333333333333 }, Flags = { Linear = true } },
+							[0.0936423199062041] = { 1, LH = { 0.0624282132708027, 0.666666666666667 }, RH = { 0.395761546604136, 1 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.697880773302068, 1 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 255, Green = 255, Blue = 255 },
+					CtrlWZoom = false,
+				},
+				ArrowColor = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "ArrowHead",
+							Source = "Output",
+						},
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 0.583, },
+						TopLeftGreen = Input { Value = 0.583, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 1458.92, 165.135 } },
+				},
+				AnimTx = Transform {
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "ArrowColor",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 1457.98, 213.989 } },
+				},
+				MainTx = Transform {
+					NameSet = true,
+					Inputs = {
+						Pivot = Input { Value = { 0.502, 0.5 }, },
+						Input = Input {
+							SourceOp = "AnimTx",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 1450.44, 267.556 } },
+				},
+				Background2 = Background {
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 1128, 89.2797 } },
+				},
+				Background1 = Background {
+					Inputs = {
+						Width = Input { Value = 400, },
+						Height = Input { Value = 600, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 1120.46, 375.551 } },
+				},
+				Merge1 = Merge {
+					Inputs = {
+						Blend = Input {
+							SourceOp = "AnimCurves3",
+							Source = "Value",
+						},
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "MainTx",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 1455.15, 376.408 } },
+				},
+				AnimCurves3 = LUTLookup {
+					CtrlWZoom = false,
+					Inputs = {
+						Curve = Input { Value = FuID { "Custom" }, },
+						Lookup = Input {
+							SourceOp = "AnimCurves3Lookup",
+							Source = "Value",
+						},
+						Invert = Input { Value = 1, }
+					},
+				},
+				AnimCurves3Lookup = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.31878259721397, 0 }, Flags = { Linear = true } },
+							[0.956347791641909] = { 0.0148148148148148, LH = { 0.89613118803489, -0.0613898200228523 }, RH = { 0.967090308482402, 0.0284095631737519 } },
+							[1] = { 1, LH = { 0.985449263880636, 0.620130989314031 } }
+						}
+					},
+					SplineColor = { Red = 255, Green = 255, Blue = 255 },
+					CtrlWZoom = false,
+				}
+			},
+		}
+	},
+	ActiveTool = "oAnimatedArrow"
+}
